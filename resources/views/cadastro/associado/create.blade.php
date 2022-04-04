@@ -20,6 +20,13 @@
                     <form method="POST" action="{{ route('associado.store') }}">
                         @csrf
                         <h3 class="mb-3">Dados Pessoais</h3>
+                        <div class="form-group col-md-4 mb-3 ">
+                            <label class="form-label">Data de Associação</label>
+                            <div>
+                                <input type="date" class="form-control" aria-describedby="emailHelp"
+                                    placeholder="Data de Associação" name="data_associacao">
+                            </div>
+                        </div>
                         <div class="form-group mb-3 ">
                             <label class="form-label">Nome Completo</label>
                             <div>
@@ -89,7 +96,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="form-group col-md-4 mb-3 ">
                                 <label class="form-label">Sexo</label>
@@ -357,6 +363,56 @@
                                     <input type="text" class="form-control p-0" placeholder="Área" name="area">
                                 </div>
                             </div>
+                        </div>
+                        <hr class="mt-2">
+                        <h3 class="mb-3">Autorização Contribuição</h3>
+                        <label class="form-check ">
+                            <input class="form-check-input" type="radio" checked="" name="autorizacao" value="capao_canoa">
+
+                            <p class="card-text form-check-label fs-4  mt-2 ">
+                                Autorizo o <strong>MUNICÍPIO DE CAPÃO DA CANOA</strong>, descontar em minha folha de
+                                pagamento,
+                                através
+                                do <strong>DEPARTAMENTO PESSOAL</strong> ou do<strong> INSTITUTO MUNICIPAL DE SEGURIDADE
+                                    SOCIAL-</strong>, o percentual
+                                de 1% (um por cento), sobre o meu vencimento básico, referente a contribuição mensal,
+                                bem
+                                como o
+                                valor de um dia de trabalho/ano de acordo com minha remuneração mensal, a título de
+                                contribuição
+                                sindical
+                                anual dos associados, a ser repassado ao <strong>SINDICATO DOS PROFISSIONAIS DO
+                                    MAGISTÉRIO
+                                    MUNICIPAL
+                                    DE CAPÃO DA CANOA E XANGRI-LÁ/ SPMCCX.</strong>
+                            </p>
+                        </label>
+                        <div class="form-group mb-3">
+                            <label class="form-check ">
+                                <input class="form-check-input" type="radio" name="autorizacao" value="Xangri-Lá">
+                                <p class="card-text fs-4 mt-5">
+                                    Autorizo o <strong>MUNICÍPIO DE XANGRI-LÁ</strong>, descontar em minha folha de
+                                    pagamento,
+                                    através do <strong>DEPARTAMENTO PESSOAL</strong> ou do<strong> INSTITUTO DE
+                                        PREVIDENCIA
+                                        SOCIAL
+                                        DOS
+                                        SERVIDORES PÚBLICOS DO MUNICÍPIO DE XANGRI-LÁ –PREV-XANGRI-LÁ</strong>, o
+                                    percentual
+                                    de 1% (um por cento), sobre o meu vencimento básico, referente a contribuição
+                                    mensal,
+                                    bem
+                                    como o
+                                    valor de um dia de trabalho/ano de acordo com minha remuneração mensal, a título de
+                                    contribuição
+                                    sindical
+                                    anual dos associados, a ser repassado ao <strong>SINDICATO DOS PROFISSIONAIS DO
+                                        MAGISTÉRIO
+                                        MUNICIPAL
+                                        DE CAPÃO DA CANOA E XANGRI-LÁ/ SPMCCX.</strong>
+
+                                </p>
+                            </label>
                         </div>
                         <div class="form-footer">
                             <button type="submit" class="btn btn-primary">Enviar</button>

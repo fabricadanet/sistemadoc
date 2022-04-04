@@ -33,7 +33,15 @@ Route::middleware('auth')->group(function () {
     Route::post('autorizacoes/capaodacanoa', [\App\Http\Controllers\AutorizacaoController::class, 'storeCC'])->name('autorizacoes.capao.store');
     Route::get('autorizacoes/xangrila', [\App\Http\Controllers\AutorizacaoController::class, 'contribuicaoXla'])->name('autorizacoes.xangrila.form');
     Route::post('autorizacoes/xangrila', [\App\Http\Controllers\AutorizacaoController::class, 'storeXla'])->name('autorizacoes.xangrila.store');
-
+    Route::get('lista/geral', function () {
+    return view('lista.geral');
+})->name('lista.geral');
+    Route::get('lista/capao', function () {
+    return view('lista.capao');
+})->name('lista.capao');
+    Route::get('lista/xangrila', function () {
+    return view('lista.xangrila');
+})->name('lista.xangrila');
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 });

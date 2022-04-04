@@ -50,21 +50,7 @@
                                 <a class="dropdown-item" href="{{ route('dependente.create') }}">
                                     Dependente
                                 </a>
-                                <div class="dropend">
-                                    <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                                        data-bs-auto-close="outside" role="button" aria-expanded="false">
-                                        Autorizações de Débito
-                                    </a>
-                                    <div class="dropdown-menu">
-                                        <a href="{{ route('autorizacoes.capao.form') }}" class="dropdown-item">
-                                            Capão da Canoa
-                                        </a>
-                                        <a href="{{ route('autorizacoes.xangrila.form') }}" class="dropdown-item">
-                                            Xangri-Lá
-                                        </a>
 
-                                    </div>
-                                </div>
                         </div>
 
                     </li>
@@ -97,23 +83,10 @@
                                     Baixar Formulário de Cadastro
                                 </a>
 
-                                <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                                    data-bs-auto-close="outside" role="button" aria-expanded="false">
-                                    Baixar Autorizações
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a href="{{ route('autorizacoes.capao.form') }}" class="dropdown-item">
-                                        Capão da Canoa
-                                    </a>
-
-
-                                </div>
                                 <a class="dropdown-item" href="#">
-                                    Enviar Ficha de Cadastro
+                                    Enviar Formulário de Cadastro
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    Enviar Autorizações de Débito
-                                </a>
+
                             </div </div>
 
                     </li>
@@ -152,7 +125,7 @@
                                 </svg>
                             </span>
                             <span class="nav-link-title">
-                                {{ __('About') }}
+                                {{ __('Arquivos') }}
                             </span>
                         </a>
                     </li>
@@ -176,32 +149,18 @@
                                 </svg>
                             </span>
                             <span class="nav-link-title">
-                                Submenus
+                                Listas de Presenças
                             </span>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                                Submenu Item #1
+                            <a class="dropdown-item" href="{{ route('lista.geral') }}">
+                                Geral
                             </a>
-                            <div class="dropend">
-                                <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                                    data-bs-auto-close="outside" role="button" aria-expanded="false">
-                                    Submenu Item #2
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a href="#" class="dropdown-item">
-                                        Subsubmenu Item #1
-                                    </a>
-                                    <a href="#" class="dropdown-item">
-                                        Subsubmenu Item #2
-                                    </a>
-                                    <a href="#" class="dropdown-item">
-                                        Subsubmenu Item #3
-                                    </a>
-                                </div>
-                            </div>
-                            <a class="dropdown-item" href="#">
-                                Submenu Item #3
+                            <a class="dropdown-item" href="{{ route('lista.capao') }}">
+                                Capão da Canoa
+                            </a>
+                            <a class="dropdown-item" href="{{ route('lista.xangrila') }}">
+                                Xangri-Lá
                             </a>
                         </div>
                     </li>

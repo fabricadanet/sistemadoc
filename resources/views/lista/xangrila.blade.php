@@ -5,7 +5,7 @@
         <!-- Page title -->
         <div class="page-header d-print-none">
             <h2 class="page-title">
-                {{ __('Arquivos') }}
+                {{ __('Lista de Presença Xangri-Lá') }}
             </h2>
         </div>
     </div>
@@ -14,7 +14,7 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-text">
-                        Aqui o administrador poderá disponibilizar arquivos pdf ou imagens para todos os associados.
+                        Aqui o administrador poderá gerar uma lista de presença de todos os associados cadastrados na cidade de Xangri-Lá.
                     </p>
                 </div>
             </div>

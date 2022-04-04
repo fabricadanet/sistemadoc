@@ -5,22 +5,7 @@
         @csrf
 
         <div class="card-body">
-            <h2 class="card-title text-center mb-4">{{ __('Crie uma nova conta') }}</h2>
-            <div class="mb-3 d-flex justify-content-center align-items-center">
-                <div class="form-check m-2">
-                    <input class="form-check-input" type="radio" name="city" id="flexRadioDefault1" value="capao_da_canoa"
-                        checked>
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        Capaão da Canoa
-                    </label>
-                </div>
-                <div class="form-check m-2">
-                    <input class="form-check-input" type="radio" name="city" id="flexRadioDefault2" value="xangrila">
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        Xangri-lá
-                    </label>
-                </div>
-            </div>
+            <h2 class="card-title text-center mb-4">{{ __('Cadastre uma nova conta') }}</h2>
 
             <div class="mb-3">
                 <label class="form-label">{{ __('Nome Completo') }}</label>
@@ -58,14 +43,15 @@
             </div>
 
             <div class="form-footer">
-                <button type="submit" class="btn btn-primary w-100">{{ __('Criar nova conta') }}</button>
+                <button type="submit" class="btn btn-primary w-100">{{ __('Criar novo cadastro') }}</button>
             </div>
         </div>
     </form>
 
     @if (Route::has('login'))
         <div class="text-center text-muted mt-3">
-            {{ __('Eu já possuo uma conta.') }} <a href="{{ route('login') }}" tabindex="-1">{{ __('Entrar') }}</a>
+            {{ __('Eu já possuo associado(a).') }} <a href="{{ route('login') }}"
+                tabindex="-1">{{ __('Entrar') }}</a>
         </div>
     @endif
 @endsection

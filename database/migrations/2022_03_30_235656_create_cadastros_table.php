@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('cadastros', function (Blueprint $table) {
         $table->id();
             $table->foreignId('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->date('data_associacao')->default(now());
             $table->string('telefone')->nullable();
             $table->string('celular')->nullable();
@@ -54,7 +55,7 @@ return new class extends Migration
             $table->string('autorizacao')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 

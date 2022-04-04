@@ -23,9 +23,7 @@ class User extends Authenticatable
         'password',
         'role',
         'status',
-        'city',
         'cadastro_id',
-        'autorizacao_id',
         'created_at',
 
     ];
@@ -52,8 +50,5 @@ class User extends Authenticatable
     {
         return $this->belongsTo(cadastro::class);
     }
-    public function autorizacao()
-    {
-        return $this->belongsTo(autorizacao::class);
-    }
+
 }

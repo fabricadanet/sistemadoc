@@ -19,7 +19,7 @@ class CadastroController extends Controller
         return view('cadastro.associado.create', compact('user'));
     }
      public function store(Request $request){
-         dd($request->all());
+
         $user = auth()->user();
         $data = $request->all();
         $data['user_id'] = $user->id;

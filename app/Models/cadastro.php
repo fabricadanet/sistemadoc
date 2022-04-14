@@ -10,6 +10,7 @@ class cadastro extends Model
     use HasFactory;
     protected $table = 'cadastros';
     protected $fillable = [
+        'nome',
         'data_associacao',
         'user_id',
         'telefone',

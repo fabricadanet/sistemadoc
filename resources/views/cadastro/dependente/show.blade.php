@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     @if ($dependentes->count() > 0)
         <div class="container-xl d-flex justify-content-center align-items-center ">
             <!-- Page title -->
@@ -18,35 +19,39 @@
                         <h3 class="card-title">Cadastro</h3>
                     </div>
                     <div class="card-body">
-                        <form>
-                            <h3 class="mb-3">Dados do Dependente</h3>
-                            <div class="form-group mb-3 ">
-                                <label class="form-label">Nome Completo</label>
-                                <div>
-                                    <input type="text" class="form-control" placeholder="Nome">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-md-6 mb-3 ">
-                                    <label class="form-label">Parentesco</label>
-                                    <div>
-                                        <input type="text" class="form-control" placeholder="Parentesco">
-                                    </div>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nome</th>
 
-                                </div>
-                                <div class="form-group col-md-6 mb-3 ">
-                                    <label class="form-label">Data de Nascimento</label>
-                                    <div>
-                                        <input type="date" class="form-control" aria-describedby="emailHelp"
-                                            placeholder="Data de
-                                                                                                                                                                                                                                                                                                                                                                    Nascimento">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-footer">
-                                <button type="submit" class="btn btn-primary">Enviar</button>
-                            </div>
-                        </form>
+                                    <th scope="col">Data de Nascimento</th>
+                                    <th scope="col">Grau de Parentesco</th>
+                                    <th scope="col">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($dependentes as $dependente)
+                                    <tr>
+                                        <th scope="row">{{ $dependente->id }}</th>
+                                        <td>{{ $dependente->nome }}</td>
+
+                                        <td>{{ $dependente->data_nascimento }}</td>
+                                        <td>{{ $dependente->parentesco }}</td>
+                                        <td>
+
+                                            <form action="{{ route('dependente.destroy', $dependente->id) }}"
+                                                method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Excluir</button>
+                                            </form>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <a href="{{ route('dependente.create') }}" class=" mt-5 btn btn-success">Cadastrar novo
+                            dependente</a>
                     </div>
                 </div>
             </div>
@@ -58,6 +63,7 @@
                 <h2 class="page-title">
                     {{ __('Não há dependentes cadastrados') }}
                 </h2>
+                <a href="{{ route('dependente.create') }}" class=" mt-5 btn btn-success">Cadastrar novo dependente</a>
             </div>
         </div>
     @endif

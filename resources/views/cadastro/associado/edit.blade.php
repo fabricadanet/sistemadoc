@@ -31,26 +31,28 @@
                             <label class="form-label">Nome Completo*</label>
                             <div>
                                 <input type="text" class="form-control" placeholder="Nome" name="nome"
-                                    value="{{ $user->name }}" required>
+                                    value="{{ $cadastro->name }}" required>
                             </div>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label">Email*</label>
                             <div>
                                 <input type="email" class="form-control" placeholder="Email" name="email"
-                                    value="{{ $user->email }}" required>
+                                    value="{{ $cadastro->email }}" required>
                             </div>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label">Nome da Mãe*</label>
                             <div>
-                                <input type="text" class="form-control" placeholder="Mãe" name="mae" required>
+                                <input type="text" class="form-control" placeholder="Mãe" name="mae" required
+                                    value="{{ $cadastro->mae }}">
                             </div>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label">Nome do Pai</label>
                             <div>
-                                <input type="text" class="form-control" placeholder="Pai" name="pai">
+                                <input type="text" class="form-control" placeholder="Pai" name="pai"
+                                    value="{{ $cadastro->pai }}">
                             </div>
                         </div>
 
@@ -58,13 +60,15 @@
                             <div class="form-group col-6 mb-3 ">
                                 <label class="form-label">Telefone</label>
                                 <div>
-                                    <input type="phone" class="form-control" placeholder="(51)xxxx-xxxxx" name="telefone">
+                                    <input type="phone" class="form-control" placeholder="(51)xxxx-xxxxx" name="telefone"
+                                        value="{{ $cadastro->telefone }}">
                                 </div>
                             </div>
                             <div class="form-group col-6 mb-3 ">
                                 <label class="form-label">Celular</label>
                                 <div>
-                                    <input type="phone" class="form-control" placeholder="(51)xxxx-xxxxx" name="celular">
+                                    <input type="phone" class="form-control" placeholder="(51)xxxx-xxxxx" name="celular"
+                                        value="{{ $cadastro->celular }}">
                                 </div>
                             </div>
                         </div>
@@ -74,7 +78,7 @@
                                     <label class="form-label">CPF*</label>
                                     <div>
                                         <input type="text" class="form-control" placeholder="CPF somente números"
-                                            name="cpf" required>
+                                            name="cpf" required value="{{ $cadastro->cpf }}">
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +87,7 @@
                                     <label class="form-label">RG*</label>
                                     <div>
                                         <input type="text" class="form-control" placeholder="RG somente números" name="rg"
-                                            required>
+                                            required value="{{ $cadastro->rg }}">
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +95,8 @@
                                 <div class="form-group mb-3">
                                     <label class="form-label">PIS</label>
                                     <div>
-                                        <input type="text" class="form-control" placeholder="PIS" name="pis">
+                                        <input type="text" class="form-control" placeholder="PIS" name="pis"
+                                            value="{{ $cadastro->pis }}">
                                     </div>
                                 </div>
                             </div>
@@ -368,7 +373,7 @@
                         <h3 class="mb-3">Autorização Contribuição</h3>
                         <label class="form-check ">
                             <input class="form-check-input" type="radio" checked="" name="autorizacao"
-                                value="Capão da Canoa">
+                                value="Capao da Canoa">
 
                             <p class="card-text form-check-label fs-4  mt-2 ">
                                 Autorizo o <strong>MUNICÍPIO DE CAPÃO DA CANOA</strong>, descontar em minha folha de

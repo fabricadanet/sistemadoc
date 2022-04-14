@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\cadastro;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -23,6 +25,7 @@ class User extends Authenticatable
         'password',
         'role',
         'status',
+        'telefone',
         'cadastro_id',
         'created_at',
 
@@ -48,7 +51,20 @@ class User extends Authenticatable
     ];
     public function cadastro()
     {
-        return $this->belongsTo(cadastro::class);
+        return $this->hasOne(cadastro::class);
     }
+    public function dependente()
+    {
+        return $this->hasMany(dependente::class);
+    }
+    public function hasCadastro()
+    {
+        return $this->cadastro()->exists();
+    }
+    public function isAdmin()
+    {
+        return $this->role === 'Administrador(a)';
+    }
+
 
 }

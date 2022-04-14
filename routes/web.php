@@ -1,6 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\{
+    DependenteController,
+    CadastroController,
+    UserController,
+    ProfileController,
+    HomeController,
+    AutorizacaoController,
+    ListaController,
+    PdfController
+};
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,29 +30,26 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::view('about', 'about')->name('about');
 
-    Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+    Route::get('users', [UserController::class, 'index'])->name('users.index');
 
 
-    Route::resource('cadastros/associado', \App\Http\Controllers\CadastroController::class);
-    Route::resource('cadastros/dependente', \App\Http\Controllers\DependenteController::class);
-    Route::get('autorizacoes/capaodacanoa', [\App\Http\Controllers\AutorizacaoController::class, 'contribuicaoCC'])->name('autorizacoes.capao.form');
-    Route::post('autorizacoes/capaodacanoa', [\App\Http\Controllers\AutorizacaoController::class, 'storeCC'])->name('autorizacoes.capao.store');
-    Route::get('autorizacoes/xangrila', [\App\Http\Controllers\AutorizacaoController::class, 'contribuicaoXla'])->name('autorizacoes.xangrila.form');
-    Route::post('autorizacoes/xangrila', [\App\Http\Controllers\AutorizacaoController::class, 'storeXla'])->name('autorizacoes.xangrila.store');
-    Route::get('lista/geral', function () {
-    return view('lista.geral');
-})->name('lista.geral');
-    Route::get('lista/capao', function () {
-    return view('lista.capao');
-})->name('lista.capao');
-    Route::get('lista/xangrila', function () {
-    return view('lista.xangrila');
-})->name('lista.xangrila');
-    Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
-    Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    Route::resource('cadastros/associado', CadastroController::class);
+    Route::get('cadastros/associado/{id}/ver', [CadastroController::class, 'showAssociado'])->name('cadastros.associado.ver');
+    Route::resource('cadastros/dependente', DependenteController::class);
+    Route::get('cadastros/dependentes/associado/{id}', [DependenteController::class, 'show'])->name('dependentes.associado.show');
+    Route::get('autorizacoes/capaodacanoa', [AutorizacaoController::class, 'contribuicaoCC'])->name('autorizacoes.capao.form');
+    Route::post('autorizacoes/capaodacanoa', [AutorizacaoController::class, 'storeCC'])->name('autorizacoes.capao.store');
+    Route::get('autorizacoes/xangrila', [AutorizacaoController::class, 'contribuicaoXla'])->name('autorizacoes.xangrila.form');
+    Route::post('autorizacoes/xangrila', [AutorizacaoController::class, 'storeXla'])->name('autorizacoes.xangrila.store');
+    Route::get('lista/geral',[ListaController::class,'index'])->name('lista.geral');
+    Route::get('lista/capao', [ListaController::class,'listaCapao'])->name('lista.capao');
+    Route::get('lista/xangrila', [ListaController::class,'listaXangrila'])->name('lista.xangrila');
+    Route::get('profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('pdf', [PdfController::class,'pdf'])->name('associado.pdf');
 });

@@ -12,8 +12,8 @@
                     {{ __('Bem-vindo(a)') }} {{ auth()->user()->name ?? null }}
                 </div>
                 <div class="text-muted">
-                    Area restrita do associado. Aqui poderão ser disponibilizados documentos para downloads, links ou
-                    notícias do site para os associados, e muito mais...
+                    Area restrita do associado. Em breve serão disponbilizadas documentos para downloads, links e
+                    notícias do sindicato para os associados.
 
                 </div>
             </div>

@@ -19,7 +19,6 @@ class CadastroController extends Controller
         return view('cadastro.associado.create', compact('user'));
     }
      public function store(Request $request){
-
         $user = auth()->user();
         $data = $request->all();
         $data['user_id'] = $user->id;
@@ -32,10 +31,15 @@ class CadastroController extends Controller
 
         $cadastro = Cadastro::create($data);
 
-        $user->update(['cadastro_id' => $cadastro->id]);
+        $user->update(['cadastro_id' => $cadastro->id, 'telefone' => $data['telefone']]);
 
-        redirect('cadastro.associado.index');
+      return view('cadastro.associado.show', compact('cadastro'));
 
+
+     }
+     public function edit($id){
+        $cadastro = Cadastro::where('user_id', $id)->first();
+        return view('cadastro.associado.edit', compact('cadastro'));
      }
 
      public function show($id){
@@ -44,6 +48,13 @@ class CadastroController extends Controller
 
             return view('cadastro.associado.show', compact('cadastro'));
 
+     }
+
+     public function showAssociado($id){
+
+         $cadastro = Cadastro::where('user_id', $id)->first();
+
+         return view('cadastro.associado.show', compact('cadastro'));
      }
 
         public function update(Request $request, $id){

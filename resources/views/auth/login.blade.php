@@ -20,11 +20,7 @@
             <div class="mb-3">
                 <label class="form-label">
                     {{ __('Senha') }}
-                    @if (Route::has('password.request'))
-                        <span class="form-label-description">
-                            <a href="{{ route('password.request') }}" tabindex="5">{{ __('Esqueci a senha') }}</a>
-                        </span>
-                    @endif
+
                 </label>
                 <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
                     placeholder="{{ __('Digite a sua senha') }}" required tabindex="2">

@@ -11,27 +11,24 @@ class DependenteController extends Controller
 {
     public function index()
     {
-        return view('cadastro.dependente.index');
+        return view('cadastro.dependente.show');
     }
 
     public function create()
     {
         $user=auth()->user();
+        $dependentes = Dependente::where('user_id', $user->id)->get();
         return view('cadastro.dependente.create',compact('user'));
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'nome' => 'required',
-            'data_nascimento' => 'required',
-            'parentesco' => 'required',
-        ]);
         $data=$request->all();
         $data['user_id']=auth()->user()->id;
-        $dependente = Dependente::create($data);
-        redirect('cadastro.dependente.create')->with('success', 'Dependente cadastrado com sucesso!');
-
+        $user=auth()->user();
+        Dependente::create($data);
+        $dependentes = Dependente::where('user_id', auth()->user()->id)->get();
+        return view('cadastro.dependente.show',compact('dependentes','user'));
     }
 
     public function show($id)
@@ -52,6 +49,9 @@ class DependenteController extends Controller
 
     public function destroy($id)
     {
-        return view('cadastro.dependente.destroy');
+        Dependente::destroy($id);
+        $dependentes = Dependente::where('user_id', auth()->user()->id)->get();
+        $user=auth()->user();
+        return view('cadastro.dependente.show',compact('user','dependentes'));
     }
 }

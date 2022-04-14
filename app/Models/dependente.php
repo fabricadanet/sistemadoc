@@ -9,7 +9,7 @@ class dependente extends Model
 {
     use HasFactory;
     protected $table = 'dependentes';
-    protected $fillabe = ['user_id', 'nome', 'data_nascimento', 'parentesco', 'created_at','updated_at'];
+    protected $fillable = ['user_id', 'nome', 'data_nascimento', 'parentesco', 'created_at','updated_at'];
     public function user()
     {
         return $this->belongsTo(User::class);

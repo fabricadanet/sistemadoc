@@ -21,30 +21,30 @@
                         @csrf
                         <h3 class="mb-3">Dados Pessoais</h3>
                         <div class="form-group col-md-4 mb-3 ">
-                            <label class="form-label">Data de Associação*</label>
+                            <label class="form-label">Data de Associação</label>
                             <div>
                                 <input type="date" class="form-control" aria-describedby="emailHelp"
-                                    placeholder="Data de Associação" name="data_associacao" required>
+                                    placeholder="Data de Associação" name="data_associacao">
                             </div>
                         </div>
                         <div class="form-group mb-3 ">
-                            <label class="form-label">Nome Completo*</label>
+                            <label class="form-label">Nome Completo</label>
                             <div>
                                 <input type="text" class="form-control" placeholder="Nome" name="nome"
-                                    value="{{ $user->name }}" required>
+                                    value="{{ $user->name }}">
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label class="form-label">Email*</label>
+                            <label class="form-label">Email</label>
                             <div>
                                 <input type="email" class="form-control" placeholder="Email" name="email"
-                                    value="{{ $user->email }}" required>
+                                    value="{{ $user->email }}">
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label class="form-label">Nome da Mãe*</label>
+                            <label class="form-label">Nome da Mãe</label>
                             <div>
-                                <input type="text" class="form-control" placeholder="Mãe" name="mae" required>
+                                <input type="text" class="form-control" placeholder="Mãe" name="mae">
                             </div>
                         </div>
                         <div class="form-group mb-3">
@@ -71,19 +71,19 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group mb-3">
-                                    <label class="form-label">CPF*</label>
+                                    <label class="form-label">CPF</label>
                                     <div>
                                         <input type="text" class="form-control" placeholder="CPF somente números"
-                                            name="cpf" required>
+                                            name="cpf">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group mb-3">
-                                    <label class="form-label">RG*</label>
+                                    <label class="form-label">RG</label>
                                     <div>
-                                        <input type="text" class="form-control" placeholder="RG somente números" name="rg"
-                                            required>
+                                        <input type="text" class="form-control" placeholder="RG somente números"
+                                            name="rg">
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md-4 mb-3 ">
-                                <label class="form-label">Sexo*</label>
+                                <label class="form-label">Sexo</label>
                                 <div>
                                     <select class="form-select" name="sexo">
                                         <option>Selecione</option>
@@ -108,13 +108,13 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-4 mb-3 ">
-                                <label class="form-label">Data de Nascimento*</label>
+                                <label class="form-label">Data de Nascimento</label>
                                 <div>
-                                    <input type="date" class="form-control" name="data_nascimento" required>
+                                    <input type="date" class="form-control" name="data_nascimento">
                                 </div>
                             </div>
                             <div class="form-group col-md-4 mb-3 ">
-                                <label class="form-label">Estado Civil*</label>
+                                <label class="form-label">Estado Civil</label>
                                 <div>
                                     <select class="form-select" name="estado_civil">
                                         <option value="solteiro(a)">Solteiro(a)</option>
@@ -127,18 +127,18 @@
                         </div>
                         <div class="row">
                             <div class="form-group mb-3 col-md-6">
-                                <label class="form-label">Naturalidade*</label>
+                                <label class="form-label">Naturalidade</label>
                                 <div>
                                     <input type="text" class="form-control" placeholder="Cidade/Estado"
-                                        name="naturalidade" required>
+                                        name="naturalidade">
                                 </div>
 
                             </div>
                             <div class="form-group mb-3 col-md-6">
-                                <label class="form-label">Nacionalidade*</label>
+                                <label class="form-label">Nacionalidade</label>
                                 <div>
                                     <input type="text" class="form-control" placeholder="Nacionalidade"
-                                        name="nacionalidade" value="Brasileira" required>
+                                        name="nacionalidade" value="Brasileira">
                                 </div>
                             </div>
                         </div>
@@ -146,10 +146,10 @@
                         <h3 class="mb-3">Endereço</h3>
                         <div class="row">
                             <div class="form-group mb-3 col-md-8">
-                                <label class="form-label">Logradouro*</label>
+                                <label class="form-label">Logradouro</label>
                                 <div>
                                     <input type="text" class="form-control" placeholder="Avenda/Estrada/Rua"
-                                        name="logradouro" required>
+                                        name="logradouro">
                                 </div>
                             </div>
                             <div class="form-group mb-3 col-md-4">
@@ -167,9 +167,9 @@
                                 </div>
                             </div>
                             <div class="form-group mb-3 col-md-4">
-                                <label class="form-label">Bairro*</label>
+                                <label class="form-label">Bairro</label>
                                 <div>
-                                    <input type="text" class="form-control" placeholder="Bairro" name="bairro" required>
+                                    <input type="text" class="form-control" placeholder="Bairro" name="bairro">
                                 </div>
                             </div>
                             <div class="form-group mb-3 col-md-4">
@@ -182,13 +182,13 @@
                         </div>
                         <div class="row">
                             <div class="form-group mb-3 col-md-6">
-                                <label class="form-label">Cidade*</label>
+                                <label class="form-label">Cidade</label>
                                 <div>
-                                    <input type="text" class="form-control" placeholder="Cidade" name="cidade" required>
+                                    <input type="text" class="form-control" placeholder="Cidade" name="cidade">
                                 </div>
                             </div>
                             <div class="form-group mb-3 col-md-6">
-                                <label class="form-label">Estado*</label>
+                                <label class="form-label">Estado</label>
                                 <div>
                                     <select class="form-select" name="estado">
                                         <option value="">Selecione o Estado</option>
@@ -238,15 +238,15 @@
                                 <div>
                                     <label class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" checked="" name="turnos_cc[]"
-                                            value="Manhã">
+                                            value="manhã">
                                         <span class="form-check-label">Manhã</span>
                                     </label>
                                     <label class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="turnos_cc[]" value="Tarde">
+                                        <input class="form-check-input" type="checkbox" name="turnos_cc[]" value="tarde">
                                         <span class="form-check-label">Tarde</span>
                                     </label>
                                     <label class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="turnos_cc[]" value="Noite">
+                                        <input class="form-check-input" type="checkbox" name="turnos_cc[]" value="noite">
                                         <span class="form-check-label">Noite</span>
                                     </label>
                                 </div>
@@ -273,15 +273,15 @@
                                 <div>
                                     <label class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" checked="" name="turnos_xla[]"
-                                            value="Manhã">
+                                            value="manhã">
                                         <span class="form-check-label">Manhã</span>
                                     </label>
                                     <label class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="turnos_xla[]" value="Tarde">
+                                        <input class="form-check-input" type="checkbox" name="turnos_xla[]" value="tarde">
                                         <span class="form-check-label">Tarde</span>
                                     </label>
                                     <label class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="turnos_xla[]" value="Noite">
+                                        <input class="form-check-input" type="checkbox" name="turnos_xla[]" value="noite">
                                         <span class="form-check-label">Noite</span>
                                     </label>
                                 </div>
@@ -331,33 +331,33 @@
                             <div>
                                 <label class="form-check ">
                                     <input class="form-check-input" type="checkbox" checked="" name="funcao[]"
-                                        value="Professor(a) anos iniciais">
+                                        value="professor(a)_anos_iniciais">
                                     <span class="form-check-label">Professor(a) Anos Iniciais</span>
                                 </label>
                                 <label class="form-check ">
                                     <input class="form-check-input" type="checkbox" name="funcao[]"
-                                        value="Professor(a) educacao infanti">
+                                        value="Professor(a)_educacao_infanti">
                                     <span class="form-check-label">Professor(a) Educação Infantil</span>
                                 </label>
                                 <label class="form-check ">
                                     <input class="form-check-input" type="checkbox" name="funcao[]"
-                                        value="Professor(a) educacao especial">
+                                        value="professor(a)educacao_especial">
                                     <span class="form-check-label">Professor(a) Educação Especial</span>
                                 </label>
                                 <label class="form-check ">
                                     <input class="form-check-input" type="checkbox" name="funcao[]"
-                                        value="Supervisor(a) escolar">
+                                        value="supervisor(a)_escolar">
                                     <span class="form-check-label">Supervisor(a) Escolar</span>
                                 </label>
                                 <label class="form-check ">
                                     <input class="form-check-input" type="checkbox" name="funcao[]"
-                                        value="Orientador(a) educacional">
+                                        value="orientador(a)educacional">
                                     <span class="form-check-label">Orientador(a) Educacional</span>
                                 </label>
                                 <div class="d-flex flex-row">
                                     <label class="form-check col-3">
                                         <input class="form-check-input" type="checkbox" name="funcao[]"
-                                            value="Professor(a) área">
+                                            value="professor(a)_area">
                                         <span class="form-check-label">Professor(a) Área</span>
                                     </label>
                                     <input type="text" class="form-control p-0" placeholder="Área" name="area">
@@ -367,8 +367,7 @@
                         <hr class="mt-2">
                         <h3 class="mb-3">Autorização Contribuição</h3>
                         <label class="form-check ">
-                            <input class="form-check-input" type="radio" checked="" name="autorizacao"
-                                value="Capão da Canoa">
+                            <input class="form-check-input" type="radio" checked="" name="autorizacao" value="capao_canoa">
 
                             <p class="card-text form-check-label fs-4  mt-2 ">
                                 Autorizo o <strong>MUNICÍPIO DE CAPÃO DA CANOA</strong>, descontar em minha folha de

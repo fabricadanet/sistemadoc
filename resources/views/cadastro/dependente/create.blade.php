@@ -21,25 +21,25 @@
                         @csrf
                         <h3 class="mb-3">Dados do Dependente</h3>
                         <div class="form-group mb-3 ">
-                            <label class="form-label">Nome Completo</label>
+                            <label class="form-label">Nome Completo*</label>
                             <div>
-                                <input type="text" class="form-control" placeholder="Nome">
+                                <input type="text" class="form-control" placeholder="Nome" name="nome" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6 mb-3 ">
-                                <label class="form-label">Parentesco</label>
+                                <label class="form-label">Parentesco*</label>
                                 <div>
-                                    <input type="text" class="form-control" placeholder="Parentesco">
+                                    <input type="text" class="form-control" placeholder="Parentesco" name="parentesco"
+                                        required>
                                 </div>
 
                             </div>
                             <div class="form-group col-md-6 mb-3 ">
-                                <label class="form-label">Data de Nascimento</label>
+                                <label class="form-label">Data de Nascimento*</label>
                                 <div>
-                                    <input type="date" class="form-control" aria-describedby="emailHelp"
-                                        placeholder="Data de
-                                                                                                                                                                                                                                                                                                                                                                            Nascimento">
+                                    <input type="date" class="form-control" placeholder="Data de Nascimento"
+                                        name="data_nascimento" required>
                                 </div>
                             </div>
                         </div>

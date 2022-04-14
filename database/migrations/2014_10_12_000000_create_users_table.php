@@ -19,8 +19,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role', ['admin', 'associate', 'superadmin','colaborador'])->default('associate');
-            $table->enum('status', ['active', 'inactive','waiting','pending'])->default('waiting');
+            $table->enum('role', ['Administrador(a)', 'Associado(a)','Colaborador(a)'])->default('Associado(a)');
+            $table->enum('status', ['Ativo', 'Inativo','Aguardando','Pendente'])->default('Aguardando');
+            $table->string('telefone')->nullable();
             $table->foreignId('cadastro_id')->nullable();
             $table->rememberToken();
             $table->timestamps();

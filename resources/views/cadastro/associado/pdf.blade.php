@@ -1,460 +1,249 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-@section('content')
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Custom styles for this Page-->
+
+
+</head>
+
+<body>
+
+
     <div class="contentPDF">
         <div class="container-xl d-flex justify-content-center align-items-center ">
             <!-- Page title -->
             <div class="page-header ">
                 <h1>SINDICATO DOS PROFISSIONAIS DO MAGISTÉRIO MUNICIPAL
                     DE CAPÃO DA CANOA E XANGRI-LÁ/ SPMCCX</h1>
-
-
             </div>
         </div>
         <div class="page-body d-flex justify-content-center align-items-center ">
 
             <div class="col-md-6 ">
-                <div class="card">
-                    <div class="card-header">
+                <div class="">
+                    <div class="">
                         <h2 class="page-title">
-                            {{ __('Formulário de cadastro de associado') }}
+                            {{ __('FICHA DE INSCRIÇÃO DE SÓCIO(A)') }}
                         </h2>
                     </div>
-                    <div class="card-body print">
-                        <form method="POST" action="{{ route('associado.store') }}">
-                            @csrf
-                            <h3 class="mb-3">Dados Pessoais</h3>
-                            <div class="form-group col-md-4 mb-3 ">
-                                <label class="form-label">Data de Associação*</label>
-                                <div>
-                                    <input type="date" class="form-control" aria-describedby="emailHelp"
-                                        placeholder="Data de Associação" name="data_associacao" required
-                                        value="{{ $cadastro->data_associacao }}">
+                    <div class=" print">
+
+                        <h3 class="mb-3">Dados Pessoais</h3>
+                        <div class="form-group text-center ">
+                            <label class="form-label">Data de Associação: {{ $cadastro->data_associacao }}</label>
+                        </div>
+                        <div class="form-group  ">
+                            <label class="form-label">Nome Completo: {{ $cadastro->user->name }}</label>
+                        </div>
+                        <div class="form-group ">
+                            <label class="form-label">Email: {{ $cadastro->user->email }}</label>
+                        </div>
+                        <div class="form-group ">
+                            <label class="form-label">Nome da Mãe: {{ $cadastro->mae }}</label>
+                        </div>
+                        <div class="form-group ">
+                            <label class="form-label">Nome do Pai: {{ $cadastro->pai }} </label>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-6 ">
+                                <label class="form-label">Telefone: {{ $cadastro->telefone }}</label>
+                            </div>
+                            <div class="form-group col-6 ">
+                                <label class="form-label">Celular: {{ $cadastro->celular }}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="">
+                                <div class="form-group col-4 ">
+                                    <label class="form-label">CPF: {{ $cadastro->cpf }}</label>
                                 </div>
                             </div>
-                            <div class="form-group mb-3 ">
-                                <label class="form-label">Nome Completo</label>
-                                <div>
-                                    <input type="text" class="form-control" placeholder="Nome" name="name"
-                                        value="{{ $cadastro->user->name }}" disabled>
+                            <div class="col-md-4">
+                                <div class="form-group col-4 ">
+                                    <label class="form-label">RG: {{ $cadastro->rg }}</label>
                                 </div>
                             </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label">Email</label>
-                                <div>
-                                    <input type="email" class="form-control" placeholder="Email" name="email"
-                                        value="{{ $cadastro->user->email }}" disabled>
+                            <div class="col-md-4">
+                                <div class="form-group col-4 ">
+                                    <label class="form-label">PIS: {{ $cadastro->pis }}</label>
                                 </div>
                             </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label">Nome da Mãe</label>
-                                <div>
-                                    <input type="text" class="form-control" placeholder="Mãe" name="mae"
-                                        value="{{ $cadastro->mae }}" disabled>
-                                </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label class="form-label">Sexo: {{ $cadastro->sexo }}</label>
                             </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label">Nome do Pai</label>
-                                <div>
-                                    <input type="text" class="form-control" placeholder="Pai" name="pai"
-                                        value="{{ $cadastro->pai }}" disabled>
-                                </div>
+                            <div class="form-group col-md-4">
+                                <label class="form-label">Data de Nascimento:
+                                    {{ $cadastro->data_nascimento }}</label>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="form-label">Estado Civil: {{ $cadastro->estado }}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group  col-md-6">
+                                <label class="form-label">Naturalidade: {{ $cadastro->naturalidade }}</label>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="form-label">Nacionalidade: {{ $cadastro->nacionalidade }}</label>
+                            </div>
+                        </div>
+                        <hr class="mt-2">
+                        <h3 class="mb-3">Endereço</h3>
+                        <div class="row">
+                            <div class="form-group ">
+                                <label class="form-label">Endereço:
+                                    {{ $cadastro->logradouro }}, {{ $cadastro->numero }},@if ($cadastro->complemento)
+                                        {{ $cadastro->complemento }},
+                                    @endif {{ $cadastro->bairro }},
+                                    {{ $cadastro->cidade }}, {{ $cadastro->estado }}.</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group >
+                                <label class=" form-label">CEP:
+                                {{ $cadastro->cep }}</label>
+                            </div>
+                        </div>
+
+                        <br>
+                        <hr class="mt-10">
+                        <br>
+                        <h3 class="mb-3">Dados Funcionais</h3>
+                        <div class="row">
+                            <div class="form-group ">
+                                <label class="form-label">Matrícula Funcional Capão da Canoa:
+                                    {{ $cadastro->matricula_cc }}</label>
+                            </div>
+                            <div class="form-group ">
+                                <label class="form-label">Turnos de Trabalho Capão da Canoa:
+                                    {{ $cadastro->turnos_cc }}</label>
+                            </div>
+                            <div class="form-group ">
+                                <label class="form-label">Data de Admissão Capão da Canoa:
+                                    {{ $cadastro->data_admissao_cc }}</label>
                             </div>
 
-                            <div class="row">
-                                <div class="form-group col-6 mb-3 ">
-                                    <label class="form-label">Telefone</label>
-                                    <div>
-                                        <input type="phone" class="form-control" placeholder="(51)xxxx-xxxxx"
-                                            name="telefone" value="{{ $cadastro->telefone }}" disabled>
-                                    </div>
-                                </div>
-                                <div class="form-group col-6 mb-3 ">
-                                    <label class="form-label">Celular</label>
-                                    <div>
-                                        <input type="phone" class="form-control" placeholder="(51)xxxx-xxxxx"
-                                            name="celular" value="{{ $cadastro->celular }}" disabled>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class=" ">
+                                <h4 class="">Matrícula Funcional Xangri-lá:
+                                    {{ $cadastro->matricula_xla }}</h4>
                             </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group mb-3">
-                                        <label class="form-label">CPF</label>
-                                        <div>
-                                            <input type="text" class="form-control" placeholder="CPF somente números"
-                                                name="cpf" value="{{ $cadastro->cpf }}" disabled>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group mb-3">
-                                        <label class="form-label">RG</label>
-                                        <div>
-                                            <input type="text" class="form-control" placeholder="RG somente números"
-                                                name="rg" value="{{ $cadastro->rg }}" disabled>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group mb-3">
-                                        <label class="form-label">PIS</label>
-                                        <div>
-                                            <input type="text" class="form-control" placeholder="PIS" name="pis"
-                                                value="{{ $cadastro->pis }}" disabled>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class=" ">
+                                <h4 class="">Turnos de Trabalho Xangri-lá:
+                                    {{ $cadastro->turnos_xla }}</h4>
                             </div>
-
-                            <div class="row">
-                                <div class="form-group col-md-4 mb-3 ">
-                                    <label class="form-label">Sexo</label>
-                                    <div>
-                                        <select class="form-select" name="sexo" disabled>
-                                            <option>Selecione</option>
-                                            <option value="masculino" @if ($cadastro->sexo == 'masculino') selected @endif>
-                                                Masculino</option>
-
-                                            <option value="feminino" @if ($cadastro->sexo == 'feminino') selected @endif>
-                                                Feminino
-                                            </option>
-
-
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4 mb-3 ">
-                                    <label class="form-label">Data de Nascimento</label>
-                                    <div>
-                                        <input type="date" class="form-control" name="data_nascimento"
-                                            value="{{ $cadastro->data_nascimento }}" disabled>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4 mb-3 ">
-                                    <label class="form-label">Estado Civil</label>
-                                    <div>
-                                        <select class="form-select" name="estado_civil" disabled>
-                                            <option value="solteiro(a)" @if ($cadastro->estado_civil == 'solteiro(a)') selected @endif>
-                                                Solteiro(a)</option>
-                                            <option value="casado(a)" @if ($cadastro->estado_civil == 'casado(a)') selected @endif>
-                                                Casado(a)</option>
-                                            <option value="divorciado(a)" @if ($cadastro->estado_civil == 'divorciado(a)') selected @endif>
-                                                Divorciado(a)</option>
-                                            <option value="viuvo(a)" @if ($cadastro->estado_civil == 'viuvo(a)') selected @endif>
-                                                Viúvo(a)
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
+                            <div class="">
+                                <h4 class="">Data de Admissão Xangri-lá:
+                                    {{ $cadastro->data_admissao_xla }}</h4>
                             </div>
-                            <div class="row">
-                                <div class="form-group mb-3 col-md-6">
-                                    <label class="form-label">Naturalidade</label>
-                                    <div>
-                                        <input type="text" class="form-control" placeholder="Cidade/Estado"
-                                            name="naturalidade" value="{{ $cadastro->naturalidade }}" disabled>
-                                    </div>
-
-                                </div>
-                                <div class="form-group mb-3 col-md-6">
-                                    <label class="form-label">Nacionalidade</label>
-                                    <div>
-                                        <input type="text" class="form-control" placeholder="Nacionalidade"
-                                            name="nacionalidade" value="Brasileira"
-                                            value="{{ $cadastro->nacionalidade }}" disabled>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6 mb-3">
+                                <h4 class="form-label">Cargo/Local de Trabalho Capão da Canoa:
+                                    {{ $cadastro->cargo_cc }}</h4>
                             </div>
-                            <hr class="mt-2">
-                            <h3 class="mb-3">Endereço</h3>
-                            <div class="row">
-                                <div class="form-group mb-3 col-md-8">
-                                    <label class="form-label">Logradouro</label>
-                                    <div>
-                                        <input type="text" class="form-control" placeholder="Avenda/Estrada/Rua"
-                                            name="logradouro" value="{{ $cadastro->logradouro }}" disabled>
-                                    </div>
-                                </div>
-                                <div class="form-group mb-3 col-md-4">
-                                    <label class="form-label">Número</label>
-                                    <div>
-                                        <input type="text" class="form-control" placeholder="Número" name="numero"
-                                            value="{{ $cadastro->numero }}" disabled>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group mb-3 col-md-4">
-                                    <label class="form-label">Complemento</label>
-                                    <div>
-                                        <input type="text" class="form-control" placeholder="Complemento"
-                                            name="complemento" value="{{ $cadastro->complemento }}" disabled>
-                                    </div>
-                                </div>
-                                <div class="form-group mb-3 col-md-4">
-                                    <label class="form-label">Bairro</label>
-                                    <div>
-                                        <input type="text" class="form-control" placeholder="Bairro" name="bairro"
-                                            value="{{ $cadastro->bairro }}" disabled>
-                                    </div>
-                                </div>
-                                <div class="form-group mb-3 col-md-4">
-                                    <label class="form-label">CEP</label>
-                                    <div>
-                                        <input type="text" class="form-control" placeholder="CEP - somente números"
-                                            name="cep" value="{{ $cadastro->cep }}" disabled>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group mb-3 col-md-6">
-                                    <label class="form-label">Cidade</label>
-                                    <div>
-                                        <input type="text" class="form-control" placeholder="Cidade" name="cidade"
-                                            value="{{ $cadastro->cidade }}" disabled>
-                                    </div>
-                                </div>
-                                <div class="form-group mb-3 col-md-6">
-                                    <label class="form-label">Estado</label>
-                                    <div>
-                                        <select class="form-select" name="estado" disabled>
-                                            <option value="">Selecione o Estado</option>
-                                            <option value="AL" @if ($cadastro->estado == 'AL') selected @endif>Alagoas
-                                            </option>
-                                            <option value="AC" @if ($cadastro->estado == 'AC') selected @endif>Acre
-                                            </option>
-                                            <option value="AP" @if ($cadastro->estado == 'AP') selected @endif>Amapá
-                                            </option>
-                                            <option value="AM" @if ($cadastro->estado == 'AM') selected @endif>Amazonas
-                                            </option>
-                                            <option value="BA" @if ($cadastro->estado == 'BA') selected @endif>Bahia
-                                            </option>
-                                            <option value="CE" @if ($cadastro->estado == 'CE') selected @endif>Ceará
-                                            </option>
-                                            <option value="DF" @if ($cadastro->estado == 'DF') selected @endif>Distrito
-                                                Federal</option>
-                                            <option value="ES" @if ($cadastro->estado == 'ES') selected @endif>Espírito
-                                                Santo</option>
-                                            <option value="GO" @if ($cadastro->estado == 'GO') selected @endif>Goiás
-                                            </option>
-                                            <option value="MA" @if ($cadastro->estado == 'MA') selected @endif>Maranhão
-                                            </option>
-                                            <option value="MT" @if ($cadastro->estado == 'MT') selected @endif>Mato
-                                                Grosso
-                                            </option>
-                                            <option value="MS" @if ($cadastro->estado == 'MS') selected @endif>Mato
-                                                Grosso
-                                                do Sul</option>
-                                            <option value="MG" @if ($cadastro->estado == 'MG') selected @endif>Minas
-                                                Gerais
-                                            </option>
-                                            <option value="PA" @if ($cadastro->estado == 'PA') selected @endif>Pará
-                                            </option>
-                                            <option value="PB" @if ($cadastro->estado == 'PB') selected @endif>Paraíba
-                                            </option>
-                                            <option value="PR" @if ($cadastro->estado == 'PR') selected @endif>Paraná
-                                            </option>
-                                            <option value="PE" @if ($cadastro->estado == 'PE') selected @endif>
-                                                Pernambuco
-                                            </option>
-                                            <option value="PI" @if ($cadastro->estado == 'PI') selected @endif>Piauí
-                                            </option>
-                                            <option value="RJ" @if ($cadastro->estado == 'RJ') selected @endif>Rio de
-                                                Janeiro</option>
-                                            <option value="RN" @if ($cadastro->estado == 'RN') selected @endif>Rio
-                                                Grande do
-                                                Norte</option>
-                                            <option value="RS" @if ($cadastro->estado == 'RS') selected @endif>Rio
-                                                Grande do
-                                                Sul</option>
-                                            <option value="RO" @if ($cadastro->estado == 'RO') selected @endif>Rondônia
-                                            </option>
-                                            <option value="RR" @if ($cadastro->estado == 'RR') selected @endif>Roraima
-                                            </option>
-                                            <option value="SC" @if ($cadastro->estado == 'SC') selected @endif>Santa
-                                                Catarina</option>
-                                            <option value="SP" @if ($cadastro->estado == 'SP') selected @endif>São Paulo
-                                            </option>
-                                            <option value="SE" @if ($cadastro->estado == 'SE') selected @endif>Sergipe
-                                            </option>
-                                            <option value="TO" @if ($cadastro->estado == 'TO') selected @endif>Tocantins
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <hr class="mt-10">
-                            <br>
-                            <h3 class="mb-3">Dados Funcionais</h3>
-                            <div class="row">
-                                <div class="form-group mb-3 col-md-4">
-                                    <label class="form-label">Matrícula Funcional Capão da Canoa</label>
-                                    <div>
-                                        <input type="text" class="form-control"
-                                            placeholder="Matrícula Funcional Capão da Canoa" name="matricula_cc"
-                                            value="{{ $cadastro->matricula_cc }}" disabled>
-                                    </div>
-                                </div>
-                                <div class="form-group mb-3 col-md-4">
-                                    <label class="form-label">Turnos de Trabalho Capão da Canoa</label>
-                                    <div>
-                                        <input type="text" class="form-control" placeholder="Função" name="turnos_cc"
-                                            value="{{ $cadastro->turnos_cc }}" disabled>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4 mb-3 ">
-                                    <label class="form-label">Data de Adimissão Capão da Canoa</label>
-                                    <div>
-                                        <input type="date" class="form-control" aria-describedby="emailHelp"
-                                            placeholder="Data de Adimissão" name="data_admissao_cc"
-                                            value="{{ $cadastro->data_admissao_cc }}" disabled>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="row">
-                                <div class="form-group mb-3 col-md-4">
-                                    <label class="form-label">Matrícula Funcional Xangri-lá</label>
-                                    <div>
-                                        <input type="text" class="form-control"
-                                            placeholder="Matrícula Funcional Xangri-lá" name="matricula_xla"
-                                            value="{{ $cadastro->matricula_xla }}" disabled>
-                                    </div>
-                                </div>
-                                <div class="form-group mb-3 col-md-4">
-                                    <label class="form-label">Turnos de Trabalho Xangri-lá</label>
-                                    <div>
-                                        <input type="text" class="form-control" placeholder="Função" name="turnos_xla"
-                                            value="{{ $cadastro->turnos_xla }}" disabled>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4 mb-3 ">
-                                    <label class="form-label">Data de Adimissão Xangri-lá</label>
-                                    <div>
-                                        <input type="date" class="form-control" aria-describedby="emailHelp"
-                                            placeholder="Data de Adimissão" name="data_admissao_xla"
-                                            value="{{ $cadastro->data_admissao_xla }}" disabled>
-                                    </div>
-                                </div>
+                            <div class="form-group col-md-6 mb-3">
+                                <h4 class="form-label">Cargo/Local de Trabalho Xangri-lá:
+                                    {{ $cadastro->cargo_xla }}</h4>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6 mb-3">
-                                    <label class="form-label">Cargo/Local de Trabalho Capão da Canoa</label>
-                                    <div>
-                                        <input type="text" class="form-control"
-                                            placeholder="Cargo/Local de Trabalho Capão da Canoa" name="cargo_cc"
-                                            value="{{ $cadastro->cargo_cc }}" disabled>
-                                    </div>
+                                    <h4 class="form-label">Telefone Contato comercial:
+                                        {{ $cadastro->tel_comercial_cc }}</h4>
                                 </div>
                                 <div class="form-group col-md-6 mb-3">
-                                    <label class="form-label">Cargo/Local de Trabalho Xangri-lá</label>
-                                    <div>
-                                        <input type="text" class="form-control"
-                                            placeholder="Cargo/Local de Trabalho Xangri-lá" name="cargo_xla"
-                                            value="{{ $cadastro->cargo_xla }}" disabled>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-6 mb-3">
-                                        <label class="form-label">Telefone Contato comercial</label>
-                                        <div>
-                                            <input type="phone" class="form-control" placeholder="(51)xxxx-xxxxx"
-                                                name="tel_comercial_cc" value="{{ $cadastro->tel_comercial_cc }}"
-                                                disabled>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6 mb-3">
-                                        <label class="form-label">Email</label>
-                                        <div>
-                                            <input type="email" class="form-control" placeholder="E-mail"
-                                                name="email_comercial_cc" value="{{ $cadastro->email_comercial_cc }}"
-                                                disabled>
-                                        </div>
-                                    </div>
+                                    <label class="form-label">Email: {{ $cadastro->email_comercial_cc }}</label>
                                 </div>
                             </div>
-                            <div class="form-group mb-3 ">
-                                <label class="form-label">Função</label>
-                                <div>
-                                    <textarea class="form-control" rows="3" placeholder="Função" name="funcao"
-                                        disabled>{{ $cadastro->funcao }}</textarea>
+                        </div>
+                        <div class="form-group mb-3 ">
+                            <label class="form-label">Função: {{ $cadastro->funcao }}</label>
+                        </div>
+                        <div class="form-group mb-3 ">
+                            <label class="form-label">Área: {{ $cadastro->area }}</label>
+                        </div>
+                        <hr class="mt-10">
+                        <br>
+                        <h3 class="mb-3">Autorização Contribuição</h3>
 
-                                </div>
+                        @if ($cadastro->autorizacao == 'Capão da Canoa')
+                            <label class="form-check ">
+
+                                <p class="card-text form-check-label fs-4  mt-2 ">
+                                    Autorizo o <strong>MUNICÍPIO DE CAPÃO DA CANOA</strong>, descontar em minha folha de
+                                    pagamento,
+                                    através
+                                    do <strong>DEPARTAMENTO PESSOAL</strong> ou do<strong> INSTITUTO MUNICIPAL DE
+                                        SEGURIDADE
+                                        SOCIAL-</strong>, o percentual
+                                    de 1% (um por cento), sobre o meu vencimento básico, referente a contribuição
+                                    mensal,
+                                    bem
+                                    como o
+                                    valor de um dia de trabalho/ano de acordo com minha remuneração mensal, a título de
+                                    contribuição
+                                    sindical
+                                    anual dos associados, a ser repassado ao <strong>SINDICATO DOS PROFISSIONAIS DO
+                                        MAGISTÉRIO
+                                        MUNICIPAL
+                                        DE CAPÃO DA CANOA E XANGRI-LÁ/ SPMCCX.</strong>
+                                </p>
+                            </label>
+                        @else
+                            <label class="form-check ">
+
+                                <p class="card-text fs-4 mt-5">
+                                    Autorizo o <strong>MUNICÍPIO DE XANGRI-LÁ</strong>, descontar em minha folha de
+                                    pagamento,
+                                    através do <strong>DEPARTAMENTO PESSOAL</strong> ou do<strong> INSTITUTO DE
+                                        PREVIDENCIA
+                                        SOCIAL
+                                        DOS
+                                        SERVIDORES PÚBLICOS DO MUNICÍPIO DE XANGRI-LÁ –PREV-XANGRI-LÁ</strong>, o
+                                    percentual
+                                    de 1% (um por cento), sobre o meu vencimento básico, referente a contribuição
+                                    mensal,
+                                    bem
+                                    como o
+                                    valor de um dia de trabalho/ano de acordo com minha remuneração mensal, a título de
+                                    contribuição
+                                    sindical
+                                    anual dos associados, a ser repassado ao <strong>SINDICATO DOS PROFISSIONAIS DO
+                                        MAGISTÉRIO
+                                        MUNICIPAL
+                                        DE CAPÃO DA CANOA E XANGRI-LÁ/ SPMCCX.</strong>
+
+                                </p>
+
+
+                            </label>
+                        @endif
+
+                        <div class="flex-colum justify-content-center align-items-center mt-5">
+                            <div>
+                                ______________________________________________
                             </div>
-                            <div class="form-group mb-3 ">
-                                <label class="form-label">Área</label>
-                                <div>
-                                    <input type="text" class="form-control" placeholder="Área" name="area"
-                                        value="{{ $cadastro->area }}" disabled>
-                                </div>
-                            </div>
-                            <hr class="mt-10">
-                            <br>
-                            <h3 class="mb-3">Autorização Contribuição</h3>
+                            <p>Assinatura do sócio</p>
 
-                            @if ($cadastro->autorizacao == 'Capão da Canoa')
-                                <label class="form-check ">
-
-                                    <p class="card-text form-check-label fs-4  mt-2 ">
-                                        Autorizo o <strong>MUNICÍPIO DE CAPÃO DA CANOA</strong>, descontar em minha folha de
-                                        pagamento,
-                                        através
-                                        do <strong>DEPARTAMENTO PESSOAL</strong> ou do<strong> INSTITUTO MUNICIPAL DE
-                                            SEGURIDADE
-                                            SOCIAL-</strong>, o percentual
-                                        de 1% (um por cento), sobre o meu vencimento básico, referente a contribuição
-                                        mensal,
-                                        bem
-                                        como o
-                                        valor de um dia de trabalho/ano de acordo com minha remuneração mensal, a título de
-                                        contribuição
-                                        sindical
-                                        anual dos associados, a ser repassado ao <strong>SINDICATO DOS PROFISSIONAIS DO
-                                            MAGISTÉRIO
-                                            MUNICIPAL
-                                            DE CAPÃO DA CANOA E XANGRI-LÁ/ SPMCCX.</strong>
-                                    </p>
-                                </label>
-                            @else
-                                <label class="form-check ">
-
-                                    <p class="card-text fs-4 mt-5">
-                                        Autorizo o <strong>MUNICÍPIO DE XANGRI-LÁ</strong>, descontar em minha folha de
-                                        pagamento,
-                                        através do <strong>DEPARTAMENTO PESSOAL</strong> ou do<strong> INSTITUTO DE
-                                            PREVIDENCIA
-                                            SOCIAL
-                                            DOS
-                                            SERVIDORES PÚBLICOS DO MUNICÍPIO DE XANGRI-LÁ –PREV-XANGRI-LÁ</strong>, o
-                                        percentual
-                                        de 1% (um por cento), sobre o meu vencimento básico, referente a contribuição
-                                        mensal,
-                                        bem
-                                        como o
-                                        valor de um dia de trabalho/ano de acordo com minha remuneração mensal, a título de
-                                        contribuição
-                                        sindical
-                                        anual dos associados, a ser repassado ao <strong>SINDICATO DOS PROFISSIONAIS DO
-                                            MAGISTÉRIO
-                                            MUNICIPAL
-                                            DE CAPÃO DA CANOA E XANGRI-LÁ/ SPMCCX.</strong>
-
-                                    </p>
-
-
-                                </label>
-                            @endif
-
-                            <div class="flex-colum justify-content-center align-items-center mt-5">
-                                <div>
-                                    ______________________________________________
-                                </div>
-                                <p>Assinatura do sócio</p>
-
-                            </div>
-                            <p>Capão da Canoa _____ de ______________________ de __________</p>
+                        </div>
+                        <p>Capão da Canoa _____ de ______________________ de __________</p>
 
 
                     </div>
@@ -463,11 +252,17 @@
                     <buton onClick="window.print()" class="btn btn-light">Baixar</buton>
 
                 </div>
-                </form>
+
             </div>
         </div>
     </div>
 
 
     </div>
-@endsection
+    <!-- Core plugin JavaScript-->
+    <script src="{{ asset('js/app.js') }}"></script>
+
+    <!-- Page level custom scripts -->
+
+
+</body>

@@ -252,7 +252,7 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-4 mb-3 ">
-                                <label class="form-label">Data de Adimissão Capão da Canoa</label>
+                                <label class="form-label">Data de Admissão Capão da Canoa</label>
                                 <div>
                                     <input type="date" class="form-control" aria-describedby="emailHelp"
                                         placeholder="Data de Adimissão" name="data_admissao_cc">
@@ -287,7 +287,7 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-4 mb-3 ">
-                                <label class="form-label">Data de Adimissão Xangri-lá</label>
+                                <label class="form-label">Data de Admissão Xangri-lá</label>
                                 <div>
                                     <input type="date" class="form-control" aria-describedby="emailHelp"
                                         placeholder="Data de Adimissão" name="data_admissao_xla">

@@ -87,11 +87,19 @@
                                 Documentos
                             </span>
                         </a>
+                       
                         <div class="dropdown-menu">
+                        
                             <div class="dropend">
+                            @if (auth()->user()->hasCadastro())
                                 <a class="dropdown-item" href="{{ route('associado.pdf') }}">
                                     Baixar Formulário de Cadastro
                                 </a>
+                                @else
+                                <a class="dropdown-item" href=#>
+                                    Finalize o seu cadastro
+                                </a>
+                                @endif
 
 
 
@@ -101,7 +109,7 @@
                     @if (Auth::user()->isAdmin())
                         <li class="nav-item @if (request()->routeIs('users.index')) active @endif">
                             <a class="nav-link" href="{{ route('users.index') }}">
-                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block text-white">
                                     <!-- Download SVG icon from http://tabler-icons.io/i/file-text -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users"
                                         width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
@@ -114,7 +122,7 @@
                                         <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
                                     </svg>
                                 </span>
-                                <span class="nav-link-title">
+                                <span class="nav-link-title text-white">
                                     {{ __('Usuários') }}
                                 </span>
                             </a>
@@ -122,7 +130,7 @@
 
                         <li class="nav-item @if (request()->routeIs('about')) active @endif">
                             <a class="nav-link" href="{{ route('about') }}">
-                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block text-white">
                                     <!-- Download SVG icon from http://tabler-icons.io/i/file-text -->
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         class="icon icon-tabler icon-tabler-info-circle" width="24" height="24"
@@ -134,16 +142,16 @@
                                         <polyline points="11 12 12 12 12 16 13 16"></polyline>
                                     </svg>
                                 </span>
-                                <span class="nav-link-title">
+                                <span class="nav-link-title text-white">
                                     {{ __('Arquivos') }}
                                 </span>
                             </a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
+                        <li class="nav-item dropdown text-white">
+                            <a class="nav-link dropdown-toggle text-white" href="#navbar-extra" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside" role="button" aria-expanded="false">
-                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block text-white">
                                     <!-- Download SVG icon from http://tabler-icons.io/i/star -->
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         class="icon icon-tabler icon-tabler-list-details" width="24" height="24"
@@ -158,7 +166,7 @@
                                         <rect x="3" y="14" width="6" height="6" rx="1"></rect>
                                     </svg>
                                 </span>
-                                <span class="nav-link-title">
+                                <span class="nav-link-title text-white">
                                     Listas de Presenças
                                 </span>
                             </a>

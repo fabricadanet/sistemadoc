@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-xl d-flex justify-content-center align-items-center " style="background-color: #0CF83C;">
+    <div class="container-xl d-flex justify-content-center align-items-center " >
         <!-- Page title -->
         <div class="page-header d-print-none">
             <h2 class="page-title">

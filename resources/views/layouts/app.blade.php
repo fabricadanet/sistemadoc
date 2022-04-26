@@ -18,7 +18,7 @@
 
 </head>
 
-<body class="theme-light"  style="background-color: #0CF83C;" >
+<body class="theme-light"   >
     <div class="page">
         <div class="sticky-top" >
             <header class="navbar navbar-expand-md navbar-light sticky-top d-print-none" style="background-color: #0CF83C;">

@@ -1,12 +1,12 @@
-<div class="navbar-expand-md">
+<div class="navbar-expand-md "  style="background-color: #009e2c;" >
     <div class="collapse navbar-collapse" id="navbar-menu">
-        <div class="navbar navbar-light">
+        <div class="navbar navbar-light" style="background-color: #009e2c;">
             <div class="container-xl">
                 <ul class="navbar-nav">
 
                     <li class="nav-item @if (request()->routeIs('home')) active @endif">
                         <a class="nav-link" href="{{ route('home') }}">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block text-white">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/home -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -17,16 +17,16 @@
                                     <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
                                 </svg>
                             </span>
-                            <span class="nav-link-title">
+                            <span class="nav-link-title text-white">
                                 {{ __('Início') }}
                             </span>
                         </a>
                     </li>
 
                     <li class="nav-item dropdown @if (request()->routeIs('home')) active @endif">
-                        <a class="nav-link dropdown-toggle" hhref="#navbar-extra" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle text-white" hhref="#navbar-extra" data-bs-toggle="dropdown"
                             data-bs-auto-close="outside" role="button" aria-expanded="false">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block text-white">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/home -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-dots"
                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
@@ -40,7 +40,7 @@
                                     <path d="M15 14v.01"></path>
                                 </svg>
                             </span>
-                            <span class="nav-link-title">
+                            <span class="nav-link-title text-white">
                                 {{ __('Cadastro') }}
                             </span>
                         </a>
@@ -66,9 +66,9 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle text-white" href="#navbar-extra" data-bs-toggle="dropdown"
                             data-bs-auto-close="outside" role="button" aria-expanded="false">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block text-white">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/star -->
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-list-details" width="24" height="24"
@@ -83,7 +83,7 @@
                                     <rect x="3" y="14" width="6" height="6" rx="1"></rect>
                                 </svg>
                             </span>
-                            <span class="nav-link-title">
+                            <span class="nav-link-titl text-white">
                                 Documentos
                             </span>
                         </a>
@@ -95,7 +95,7 @@
 
 
 
-                            </div </div>
+</div>
 
                     </li>
                     @if (Auth::user()->isAdmin())

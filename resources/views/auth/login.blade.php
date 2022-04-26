@@ -5,6 +5,10 @@
         @csrf
 
         <div class="card-body">
+            <div class="d-flex justify-content-center mb-3">
+            <img src="{{ asset('img/logo_sindicato_circle.png') }}" class="w-25 " alt="{{ config('app.name') }}" class="mb-4">
+            </div>
+            
             <h2 class="card-title text-center mb-4">{{ __('Login do Associado(a) ') }}</h2>
 
             <div class="mb-3">

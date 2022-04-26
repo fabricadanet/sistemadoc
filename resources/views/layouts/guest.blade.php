@@ -11,15 +11,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="border-top-wide border-primary d-flex flex-column">
+<body class="border-top-wide border-primary d-flex flex-column" style="background-color: #0CF83C;">
 
     <div class="page page-center">
-        <div class="container-tight py-4">
-            <div class="text-center mb-4">
-                <a href="{{ config('app.url') }}" class="navbar-brand navbar-brand-autodark">
-                    SPMCCX
-                </a>
-            </div>
+        <div class="container-tight py-4" style="background-color: #0CF83C;">
 
             @yield('content')
 

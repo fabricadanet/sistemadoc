@@ -95,4 +95,11 @@ class CadastroController extends Controller
 
         }
 
+    function destroyAssociado($id){
+        $user = User::find($id);
+        $user->cadastro()->delete();
+        $user->delete();
+        return redirect()->route('users.index');
+    }
+
 }

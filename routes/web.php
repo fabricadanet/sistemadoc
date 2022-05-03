@@ -43,7 +43,9 @@ Route::middleware('auth')->group(function () {
     Route::get('cadastros/admin/create', [CadastroController::class, 'createAdmin'])->name('cadastros.admin.create');
     Route::post('cadastros/admin/store', [CadastroController::class, 'storeAdmin'])->name('cadastros.admin.store');
     Route::get('cadastros/associado/{id}/ver', [CadastroController::class, 'showAssociado'])->name('cadastros.associado.ver');
+     Route::get('cadastros/associado/{id}/destroy', [CadastroController::class, 'destroyAssociado'])->name('cadastros.associado.destroy');
     Route::resource('cadastros/dependente', DependenteController::class);
+    Route::get('documentos/associado/download/{id}', [DocumentosController::class, 'index'])->name('documentos.associado.index');
     Route::get('cadastros/dependentes/associado/{id}', [DependenteController::class, 'show'])->name('dependentes.associado.show');
     Route::get('autorizacoes/capaodacanoa', [AutorizacaoController::class, 'contribuicaoCC'])->name('autorizacoes.capao.form');
     Route::post('autorizacoes/capaodacanoa', [AutorizacaoController::class, 'storeCC'])->name('autorizacoes.capao.store');

@@ -53,6 +53,10 @@
                                                 class="btn btn-primary">
                                                 {{ __('Ver') }}
                                             </a>
+                                            <a href="{{ route('cadastros.associado.destroy', $user->id) }}"
+                                                class="btn btn-danger">
+                                                {{ __('Excluir') }}
+                                            </a>
                                             </form>
                                         </td>
                                     </tr>

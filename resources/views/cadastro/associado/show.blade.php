@@ -5,7 +5,7 @@
         <!-- Page title -->
         <div class="page-header d-print-none">
             <h2 class="page-title">
-                {{ __('Formulário de cadastro de associado) }}
+                {{ __('Formulário de cadastro de associado') }}
             </h2>
         </div>
     </div>

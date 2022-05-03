@@ -25,6 +25,7 @@ class User extends Authenticatable
         'password',
         'role',
         'status',
+        'data_associacao',
         'telefone',
         'cadastro_id',
         'created_at',

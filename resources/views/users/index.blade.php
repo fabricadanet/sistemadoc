@@ -4,9 +4,25 @@
     <div class="container-xl">
         <!-- Page title -->
         <div class="page-header d-print-none">
-            <h2 class="page-title">
-                {{ __('Associados') }}
-            </h2>
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="page-title">
+                    {{ __('Associados') }}
+                </h2>
+                <form action="{{ route('users.search') }}" method="post" class="">
+                    @csrf
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="search" placeholder="{{ __('Pesquisar') }}">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">
+                                Pesquisar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <a class="btn btn-success" href="{{ route('users.index') }}">
+                    Listar todos
+                </a>
+            </div>
         </div>
     </div>
     <div class="page-body">
@@ -24,20 +40,31 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
-                                <tr>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->telefone }}</td>
-                                    <td>
-                                        {{ date('d/m/Y', strtotime($user->cadastro->data_associacao)) }}
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('cadastros.associado.ver', $user->id) }}"
-                                            class="btn btn-sm btn-primary">{{ __('Ver') }}</a>
-
+                            @if ($users->count() > 0)
+                                @foreach ($users as $user)
+                                    <tr>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->phone }}</td>
+                                        <td>{{ date('d/m/Y', strtotime($user->data_associacao)) }}</td>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('cadastros.associado.ver', $user->id) }}"
+                                                class="btn btn-primary">
+                                                {{ __('Ver') }}
+                                            </a>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr></tr>
+                                <td colspan="5">
+                                    {{ __('Nenhum registro encontrado') }}
+                                </td>
                                 </tr>
-                            @endforeach
+                            @endif
+
                         </tbody>
                     </table>
                 </div>

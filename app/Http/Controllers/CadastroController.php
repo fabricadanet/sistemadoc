@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Cadastro;
 
@@ -64,6 +65,34 @@ class CadastroController extends Controller
 
         public function destroy($id){
             return view('cadastro.associado.destroy');
+        }
+
+        public function createAdmin(){
+            return view('cadastro.associado.adminCreate');
+
+        }
+
+        public function storeAdmin(Request $request){
+            $data = $request->all();
+            $user = User::create([
+                'name' => $data['nome'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['cpf']),
+        ]);
+        $data['user_id'] = $user->id;
+        $funcao = implode(',', $data['funcao']);
+        $data['funcao'] = $funcao;
+        $_turnos_cc = implode(',', $data['turnos_cc']);
+        $data['turnos_cc'] = $_turnos_cc;
+        $_turnos_xla = implode(',', $data['turnos_xla']);
+        $data['turnos_xla'] = $_turnos_xla;
+
+        $cadastro = Cadastro::create($data);
+
+        $user->update(['cadastro_id' => $cadastro->id, 'telefone' => $data['telefone'], 'data_associacao' => $data['data_associacao']]);
+
+      return redirect()->route('users.index');
+
         }
 
 }

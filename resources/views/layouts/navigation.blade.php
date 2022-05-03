@@ -1,4 +1,4 @@
-<div class="navbar-expand-md "  style="background-color: #009e2c;" >
+<div class="navbar-expand-md " style="background-color: #009e2c;">
     <div class="collapse navbar-collapse" id="navbar-menu">
         <div class="navbar navbar-light" style="background-color: #009e2c;">
             <div class="container-xl">
@@ -87,23 +87,23 @@
                                 Documentos
                             </span>
                         </a>
-                       
+
                         <div class="dropdown-menu">
-                        
+
                             <div class="dropend">
-                            @if (auth()->user()->hasCadastro())
-                                <a class="dropdown-item" href="{{ route('associado.pdf') }}">
-                                    Baixar Formulário de Cadastro
-                                </a>
+                                @if (auth()->user()->hasCadastro())
+                                    <a class="dropdown-item" href="{{ route('associado.pdf') }}">
+                                        Baixar Formulário de Cadastro
+                                    </a>
                                 @else
-                                <a class="dropdown-item" href=#>
-                                    Finalize o seu cadastro
-                                </a>
+                                    <a class="dropdown-item" href=#>
+                                        Finalize o seu cadastro
+                                    </a>
                                 @endif
 
 
 
-</div>
+                            </div>
 
                     </li>
                     @if (Auth::user()->isAdmin())
@@ -123,9 +123,43 @@
                                     </svg>
                                 </span>
                                 <span class="nav-link-title text-white">
-                                    {{ __('Usuários') }}
+                                    {{ __('Associados') }}
                                 </span>
                             </a>
+                        </li>
+
+                        <li class="nav-item dropdown text-white">
+                            <a class="nav-link dropdown-toggle text-white" href="#navbar-extra"
+                                data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button"
+                                aria-expanded="false">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block text-white">
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="icon icon-tabler icon-tabler-list-details" width="24" height="24"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M13 5h8"></path>
+                                        <path d="M13 9h5"></path>
+                                        <path d="M13 15h8"></path>
+                                        <path d="M13 19h5"></path>
+                                        <rect x="3" y="4" width="6" height="6" rx="1"></rect>
+                                        <rect x="3" y="14" width="6" height="6" rx="1"></rect>
+                                    </svg>
+                                </span>
+                                <span class="nav-link-title text-white">
+                                    {{ __('Associados') }}
+                                </span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('users.index') }}">
+                                    Listar cadastros
+                                </a>
+                                <a class="dropdown-item" href="{{ route('cadastros.admin.create') }}">
+                                    Cadastrar novo associado
+                                </a>
+
+                            </div>
                         </li>
 
                         <li class="nav-item @if (request()->routeIs('about')) active @endif">
@@ -149,8 +183,9 @@
                         </li>
 
                         <li class="nav-item dropdown text-white">
-                            <a class="nav-link dropdown-toggle text-white" href="#navbar-extra" data-bs-toggle="dropdown"
-                                data-bs-auto-close="outside" role="button" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle text-white" href="#navbar-extra"
+                                data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button"
+                                aria-expanded="false">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block text-white">
                                     <!-- Download SVG icon from http://tabler-icons.io/i/star -->
                                     <svg xmlns="http://www.w3.org/2000/svg"

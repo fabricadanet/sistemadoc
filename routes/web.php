@@ -36,9 +36,12 @@ Route::middleware('auth')->group(function () {
     Route::view('about', 'about')->name('about');
 
     Route::get('users', [UserController::class, 'index'])->name('users.index');
+    Route::post('users/search', [UserController::class, 'search'])->name('users.search');
 
 
     Route::resource('cadastros/associado', CadastroController::class);
+    Route::get('cadastros/admin/create', [CadastroController::class, 'createAdmin'])->name('cadastros.admin.create');
+    Route::post('cadastros/admin/store', [CadastroController::class, 'storeAdmin'])->name('cadastros.admin.store');
     Route::get('cadastros/associado/{id}/ver', [CadastroController::class, 'showAssociado'])->name('cadastros.associado.ver');
     Route::resource('cadastros/dependente', DependenteController::class);
     Route::get('cadastros/dependentes/associado/{id}', [DependenteController::class, 'show'])->name('dependentes.associado.show');

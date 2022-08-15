@@ -24,20 +24,39 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                        @forelse ($users as $user)
+                        
                                 <tr>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->telefone }}</td>
                                     <td>
-                                        {{ date('d/m/Y', strtotime($user->cadastro->data_associacao)) }}
+                                    {{ $user->cadastro ? $user->cadastro->data_associacao  : __('Não Informado') }}
+
                                     </td>
                                     <td>
-                                        <a href="{{ route('cadastros.associado.ver', $user->id) }}"
-                                            class="btn btn-sm btn-primary">{{ __('Ver') }}</a>
+                                        @if($user->cadastro_id )
+                                        
+                                            <a href="{{ route('associado.edit', $user->id) }}" class="btn btn-primary btn-sm">
+                                                <i class="fa fa-edit"></i>
+                                                {{ __('Editar') }}
+                                            </a>
+                                        
+                                        @else
+                                        
+                                            <a href="{{ route('associado.create', $user->id) }}" class="btn btn-primary btn-sm">
+                                                <i class="fa fa-plus"></i>
+                                                {{ __('Cadastrar') }}
+                                            </a>
+                                           
+                                        
+                                        @endif
+                                    </td>
 
                                 </tr>
-                            @endforeach
+                                @empty
+                                     <p>Não há Associados Cadastrados!</p>
+                                 @endforelse
                         </tbody>
                     </table>
                 </div>

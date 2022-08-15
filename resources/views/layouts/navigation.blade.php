@@ -123,7 +123,7 @@
                                     </svg>
                                 </span>
                                 <span class="nav-link-title text-white">
-                                    {{ __('Usuários') }}
+                                    {{ __('Associados') }}
                                 </span>
                             </a>
                         </li>

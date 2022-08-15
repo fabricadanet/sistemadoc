@@ -1,15 +1,15 @@
-@extends('layouts.app')
+@extends("layouts.app")
 
-@section('content')
+@section("content")
     <div class="container-xl d-flex justify-content-center align-items-center ">
         <!-- Page title -->
         <div class="page-header d-print-none">
             <h2 class="page-title">
-                {{ __('Formulário de cadastro de associado) }}
+                {{ __("Formulário de cadastro de associado") }}
             </h2>
         </div>
     </div>
-    <div class="page-body d-flex justify-content-center align-items-center ">
+    <div class= "page-body d-flex justify-content-center align-items-center">
 
         <div class="col-md-6">
             <div class="card">
@@ -17,7 +17,7 @@
                     <h3 class="card-title">Cadastro</h3>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('associado.store') }}">
+                    <form method="POST" action="">
                         @csrf
                         <h3 class="mb-3">Dados Pessoais</h3>
                         <div class="form-group col-md-4 mb-3 ">
@@ -106,18 +106,16 @@
                         <div class="row">
                             <div class="form-group col-md-4 mb-3 ">
                                 <label class="form-label">Sexo</label>
-                                <div>
+                               <div>
                                     <select class="form-select" name="sexo" disabled>
                                         <option>Selecione</option>
-                                        <option value="masculino" @if ($cadastro->sexo == 'masculino') selected @endif>
+                                        <option value="masculino" {{$cadastro->sexo == "masculino" ? "selected" : ""}}>
                                             Masculino</option>
 
-                                        <option value="feminino" @if ($cadastro->sexo == 'feminino') selected @endif>Feminino
+                                        <option value="feminino" @if ($cadastro->sexo == "feminino") selected @endif>Feminino
                                         </option>
-
-
                                     </select>
-                                </div>
+                                </div> 
                             </div>
                             <div class="form-group col-md-4 mb-3 ">
                                 <label class="form-label">Data de Nascimento</label>
@@ -130,13 +128,13 @@
                                 <label class="form-label">Estado Civil</label>
                                 <div>
                                     <select class="form-select" name="estado_civil" disabled>
-                                        <option value="solteiro(a)" @if ($cadastro->estado_civil == 'solteiro(a)') selected @endif>
+                                        <option value="solteiro(a)" @if ($cadastro->estado_civil == "solteiro(a)") selected @endif>
                                             Solteiro(a)</option>
-                                        <option value="casado(a)" @if ($cadastro->estado_civil == 'casado(a)') selected @endif>
+                                        <option value="casado(a)" @if ($cadastro->estado_civil == "casado(a)") selected @endif>
                                             Casado(a)</option>
-                                        <option value="divorciado(a)" @if ($cadastro->estado_civil == 'divorciado(a)') selected @endif>
+                                        <option value="divorciado(a)" @if ($cadastro->estado_civil == "divorciado(a)") selected @endif>
                                             Divorciado(a)</option>
-                                        <option value="viuvo(a)" @if ($cadastro->estado_civil == 'viuvo(a)') selected @endif>Viúvo(a)
+                                        <option value="viuvo(a)" @if ($cadastro->estado_civil == "viuvo(a)") selected @endif>Viúvo(a)
                                         </option>
                                     </select>
                                 </div>
@@ -214,56 +212,56 @@
                                 <div>
                                     <select class="form-select" name="estado" disabled>
                                         <option value="">Selecione o Estado</option>
-                                        <option value="AL" @if ($cadastro->estado == 'AL') selected @endif>Alagoas
+                                        <option value="AL" @if ($cadastro->estado == "AL") selected @endif>Alagoas
                                         </option>
-                                        <option value="AC" @if ($cadastro->estado == 'AC') selected @endif>Acre</option>
-                                        <option value="AP" @if ($cadastro->estado == 'AP') selected @endif>Amapá</option>
-                                        <option value="AM" @if ($cadastro->estado == 'AM') selected @endif>Amazonas
+                                        <option value="AC" @if ($cadastro->estado == "AC") selected @endif>Acre</option>
+                                        <option value="AP" @if ($cadastro->estado == "AP") selected @endif>Amapá</option>
+                                        <option value="AM" @if ($cadastro->estado == "AM") selected @endif>Amazonas
                                         </option>
-                                        <option value="BA" @if ($cadastro->estado == 'BA') selected @endif>Bahia
+                                        <option value="BA" @if ($cadastro->estado == "BA") selected @endif>Bahia
                                         </option>
-                                        <option value="CE" @if ($cadastro->estado == 'CE') selected @endif>Ceará
+                                        <option value="CE" @if ($cadastro->estado == "CE") selected @endif>Ceará
                                         </option>
-                                        <option value="DF" @if ($cadastro->estado == 'DF') selected @endif>Distrito
+                                        <option value="DF" @if ($cadastro->estado == "DF") selected @endif>Distrito
                                             Federal</option>
-                                        <option value="ES" @if ($cadastro->estado == 'ES') selected @endif>Espírito
+                                        <option value="ES" @if ($cadastro->estado == "ES") selected @endif>Espírito
                                             Santo</option>
-                                        <option value="GO" @if ($cadastro->estado == 'GO') selected @endif>Goiás
+                                        <option value="GO" @if ($cadastro->estado == "GO") selected @endif>Goiás
                                         </option>
-                                        <option value="MA" @if ($cadastro->estado == 'MA') selected @endif>Maranhão
+                                        <option value="MA" @if ($cadastro->estado == "MA") selected @endif>Maranhão
                                         </option>
-                                        <option value="MT" @if ($cadastro->estado == 'MT') selected @endif>Mato Grosso
+                                        <option value="MT" @if ($cadastro->estado == "MT") selected @endif>Mato Grosso
                                         </option>
-                                        <option value="MS" @if ($cadastro->estado == 'MS') selected @endif>Mato Grosso
+                                        <option value="MS" @if ($cadastro->estado == "MS") selected @endif>Mato Grosso
                                             do Sul</option>
-                                        <option value="MG" @if ($cadastro->estado == 'MG') selected @endif>Minas Gerais
+                                        <option value="MG" @if ($cadastro->estado == "MG") selected @endif>Minas Gerais
                                         </option>
-                                        <option value="PA" @if ($cadastro->estado == 'PA') selected @endif>Pará</option>
-                                        <option value="PB" @if ($cadastro->estado == 'PB') selected @endif>Paraíba
+                                        <option value="PA" @if ($cadastro->estado == "PA") selected @endif>Pará</option>
+                                        <option value="PB" @if ($cadastro->estado == "PB") selected @endif>Paraíba
                                         </option>
-                                        <option value="PR" @if ($cadastro->estado == 'PR') selected @endif>Paraná
+                                        <option value="PR" @if ($cadastro->estado == "PR") selected @endif>Paraná
                                         </option>
-                                        <option value="PE" @if ($cadastro->estado == 'PE') selected @endif>Pernambuco
+                                        <option value="PE" @if ($cadastro->estado == "PE") selected @endif>Pernambuco
                                         </option>
-                                        <option value="PI" @if ($cadastro->estado == 'PI') selected @endif>Piauí
+                                        <option value="PI" @if ($cadastro->estado == "PI") selected @endif>Piauí
                                         </option>
-                                        <option value="RJ" @if ($cadastro->estado == 'RJ') selected @endif>Rio de
+                                        <option value="RJ" @if ($cadastro->estado == "RJ") selected @endif>Rio de
                                             Janeiro</option>
-                                        <option value="RN" @if ($cadastro->estado == 'RN') selected @endif>Rio Grande do
+                                        <option value="RN" @if ($cadastro->estado == "RN") selected @endif>Rio Grande do
                                             Norte</option>
-                                        <option value="RS" @if ($cadastro->estado == 'RS') selected @endif>Rio Grande do
+                                        <option value="RS" @if ($cadastro->estado == "RS") selected @endif>Rio Grande do
                                             Sul</option>
-                                        <option value="RO" @if ($cadastro->estado == 'RO') selected @endif>Rondônia
+                                        <option value="RO" @if ($cadastro->estado == "RO") selected @endif>Rondônia
                                         </option>
-                                        <option value="RR" @if ($cadastro->estado == 'RR') selected @endif>Roraima
+                                        <option value="RR" @if ($cadastro->estado == "RR") selected @endif>Roraima
                                         </option>
-                                        <option value="SC" @if ($cadastro->estado == 'SC') selected @endif>Santa
+                                        <option value="SC" @if ($cadastro->estado == "SC") selected @endif>Santa
                                             Catarina</option>
-                                        <option value="SP" @if ($cadastro->estado == 'SP') selected @endif>São Paulo
+                                        <option value="SP" @if ($cadastro->estado == "SP") selected @endif>São Paulo
                                         </option>
-                                        <option value="SE" @if ($cadastro->estado == 'SE') selected @endif>Sergipe
+                                        <option value="SE" @if ($cadastro->estado == "SE") selected @endif>Sergipe
                                         </option>
-                                        <option value="TO" @if ($cadastro->estado == 'TO') selected @endif>Tocantins
+                                        <option value="TO" @if ($cadastro->estado == "TO") selected @endif>Tocantins
                                         </option>
                                     </select>
                                 </div>
@@ -373,7 +371,7 @@
                         </div>
                 </div>
                 <div class="form-footer">
-                    <a href="{{ route('home') }}" class="btn btn-primary">Voltar</a>
+                    <a href="{{ route("home") }}" class="btn btn-primary">Voltar</a>
 
                 </div>
                 </form>

@@ -44,7 +44,7 @@ return new class extends Migration
             $table->string('cargo_1')->nullable();
             $table->date('data_admissao_1')->nullable();
             $table->string('tel_comercial_1')->nullable();
-            $table->string('email_comercial_1')->nullable();');
+            $table->string('email_comercial_1')->nullable();
 
             $table->enum('autorizacao_debito', ['autorizado_CC', 'autorizado_xla','pendente'])->default('pendente');
             $table->string('funcao')->nullable();

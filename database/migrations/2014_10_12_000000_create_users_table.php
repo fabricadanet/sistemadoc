@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->date('data_associacao')->nullable();
             $table->enum('role', ['Administrador(a)', 'Associado(a)','Colaborador(a)'])->default('Associado(a)');
             $table->enum('status', ['Ativo', 'Inativo','Aguardando','Pendente'])->default('Aguardando');
             $table->string('telefone')->nullable();

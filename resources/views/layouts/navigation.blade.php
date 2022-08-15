@@ -1,4 +1,4 @@
-<div class="navbar-expand-md "  style="background-color: #009e2c;" >
+<div class="navbar-expand-md " style="background-color: #009e2c;">
     <div class="collapse navbar-collapse" id="navbar-menu">
         <div class="navbar navbar-light" style="background-color: #009e2c;">
             <div class="container-xl">
@@ -87,45 +87,62 @@
                                 Documentos
                             </span>
                         </a>
-                       
+
                         <div class="dropdown-menu">
-                        
+
                             <div class="dropend">
-                            @if (auth()->user()->hasCadastro())
-                                <a class="dropdown-item" href="{{ route('associado.pdf') }}">
+
+                                <a class="dropdown-item" href=#>
+                                    Enviar Formulário de Cadastro
+                                </a>
+                                <a class="dropdown-item" href=#>
                                     Baixar Formulário de Cadastro
                                 </a>
-                                @else
+
+
                                 <a class="dropdown-item" href=#>
                                     Finalize o seu cadastro
                                 </a>
-                                @endif
 
 
 
-</div>
+
+                            </div>
 
                     </li>
                     @if (Auth::user()->isAdmin())
-                        <li class="nav-item @if (request()->routeIs('users.index')) active @endif">
-                            <a class="nav-link" href="{{ route('users.index') }}">
+                        <li class="nav-item dropdown text-white">
+                            <a class="nav-link dropdown-toggle text-white" href="#navbar-extra"
+                                data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button"
+                                aria-expanded="false">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block text-white">
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/file-text -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users"
-                                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                        stroke="currentColor" fill="none" stroke-linecap="round"
-                                        stroke-linejoin="round">
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="icon icon-tabler icon-tabler-list-details" width="24" height="24"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <circle cx="9" cy="7" r="4"></circle>
-                                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+                                        <path d="M13 5h8"></path>
+                                        <path d="M13 9h5"></path>
+                                        <path d="M13 15h8"></path>
+                                        <path d="M13 19h5"></path>
+                                        <rect x="3" y="4" width="6" height="6" rx="1"></rect>
+                                        <rect x="3" y="14" width="6" height="6" rx="1"></rect>
                                     </svg>
                                 </span>
                                 <span class="nav-link-title text-white">
                                     {{ __('Associados') }}
                                 </span>
                             </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('users.index') }}">
+                                    Listar cadastros
+                                </a>
+                                <a class="dropdown-item" href="{{ route('cadastros.admin.create') }}">
+                                    Cadastrar novo associado
+                                </a>
+
+                            </div>
                         </li>
 
                         <li class="nav-item @if (request()->routeIs('about')) active @endif">
@@ -149,8 +166,9 @@
                         </li>
 
                         <li class="nav-item dropdown text-white">
-                            <a class="nav-link dropdown-toggle text-white" href="#navbar-extra" data-bs-toggle="dropdown"
-                                data-bs-auto-close="outside" role="button" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle text-white" href="#navbar-extra"
+                                data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button"
+                                aria-expanded="false">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block text-white">
                                     <!-- Download SVG icon from http://tabler-icons.io/i/star -->
                                     <svg xmlns="http://www.w3.org/2000/svg"

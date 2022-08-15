@@ -4,9 +4,25 @@
     <div class="container-xl">
         <!-- Page title -->
         <div class="page-header d-print-none">
-            <h2 class="page-title">
-                {{ __('Associados') }}
-            </h2>
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="page-title">
+                    {{ __('Associados') }}
+                </h2>
+                <form action="{{ route('users.search') }}" method="post" class="">
+                    @csrf
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="search" placeholder="{{ __('Pesquisar') }}">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">
+                                Pesquisar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <a class="btn btn-success" href="{{ route('users.index') }}">
+                    Listar todos
+                </a>
+            </div>
         </div>
     </div>
     <div class="page-body">
@@ -24,39 +40,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @forelse ($users as $user)
-                        
+                            @foreach ($users as $user)
                                 <tr>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->telefone }}</td>
                                     <td>
-                                    {{ $user->cadastro ? $user->cadastro->data_associacao  : __('Não Informado') }}
-
+                                        {{ date('d/m/Y', strtotime($user->cadastro->data_associacao)) }}
                                     </td>
                                     <td>
-                                        @if($user->cadastro_id )
-                                        
-                                            <a href="{{ route('associado.edit', $user->id) }}" class="btn btn-primary btn-sm">
-                                                <i class="fa fa-edit"></i>
-                                                {{ __('Editar') }}
-                                            </a>
-                                        
-                                        @else
-                                        
-                                            <a href="{{ route('associado.create', $user->id) }}" class="btn btn-primary btn-sm">
-                                                <i class="fa fa-plus"></i>
-                                                {{ __('Cadastrar') }}
-                                            </a>
-                                           
-                                        
-                                        @endif
-                                    </td>
+                                        <a href="{{ route('cadastros.associado.ver', $user->id) }}"
+                                            class="btn btn-sm btn-primary">{{ __('Ver') }}</a>
 
                                 </tr>
-                                @empty
-                                     <p>Não há Associados Cadastrados!</p>
-                                 @endforelse
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

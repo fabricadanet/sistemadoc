@@ -5,7 +5,7 @@
         <!-- Page title -->
         <div class="page-header d-print-none">
             <h2 class="page-title">
-                {{ __("Formulário de cadastro de associado") }}
+                {{ __('Formulário de cadastro de associado) }}
             </h2>
         </div>
     </div>
@@ -17,7 +17,7 @@
                     <h3 class="card-title">Cadastro</h3>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ route('associado.store') }}">
                         @csrf
                         <h3 class="mb-3">Dados Pessoais</h3>
                         <div class="form-group col-md-4 mb-3 ">

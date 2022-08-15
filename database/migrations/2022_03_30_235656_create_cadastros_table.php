@@ -38,16 +38,14 @@ return new class extends Migration
             $table->string('cep');
             $table->string('cidade');
             $table->string('estado');
-            $table->string('matricula_cc')->nullable();
-            $table->string('matricula_xla')->nullable();
-            $table->string('cargo_cc')->nullable();
-            $table->string('cargo_xla')->nullable();
-            $table->date('data_admissao_cc')->nullable();
-            $table->date('data_admissao_xla')->nullable();
-            $table->string('tel_comercial_cc')->nullable();
-            $table->string('tel_comercial_xla')->nullable();
-            $table->string('email_comercial_cc')->nullable();
-            $table->string('email_comercial_xla')->nullable();
+
+            $table->string('matricula_1')->nullable();
+            $table->enum('cidade_1', ['Capão da Canoa', 'Xangri-lá'])->default('Capão da Canoa');
+            $table->string('cargo_1')->nullable();
+            $table->date('data_admissao_1')->nullable();
+            $table->string('tel_comercial_1')->nullable();
+            $table->string('email_comercial_1')->nullable();');
+
             $table->enum('autorizacao_debito', ['autorizado_CC', 'autorizado_xla','pendente'])->default('pendente');
             $table->string('funcao')->nullable();
             $table->string('area')->nullable();

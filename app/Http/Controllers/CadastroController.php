@@ -74,6 +74,7 @@ class CadastroController extends Controller
 
         public function storeAdmin(Request $request){
             $data = $request->all();
+            var_dump($data);
             $user = User::create([
                 'name' => $data['nome'],
                 'email' => $data['email'],
@@ -89,7 +90,7 @@ class CadastroController extends Controller
 
         $cadastro = Cadastro::create($data);
 
-        $user->update(['cadastro_id' => $cadastro->id, 'telefone' => $data['telefone'], 'data_associacao' => $data['data_associacao']]);
+        $user->update(['cadastro_id' => $cadastro->id, 'telefone' => $data['telefone']]);
 
       return redirect()->route('users.index');
 
